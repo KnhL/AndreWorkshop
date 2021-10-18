@@ -133,9 +133,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - EdgeSize: 2.58
+    - EdgeSize: 1
     - NoiseScale: 0.05
-    - SurfaceMovementSpeed: 0.5
+    - SurfaceMovementSpeed: 0.2
     - _AO: 1
     - _AORemapMax: 1
     - _AORemapMin: 0

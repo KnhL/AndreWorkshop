@@ -4,34 +4,34 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody rb;
-    [Header("Control values")]
-    [SerializeField] private float speed;
-    [SerializeField] private float gravity;
-    [SerializeField] private float maxGroundVelocity, maxJumpVelocity;
-    [Header("Current Values")]
-    [SerializeField] private Vector3 currentVelocity;
-    [SerializeField] private bool onGround = true;
+    [SerializeField] private float speed, jumpMultiplier;
+    private Rigidbody rb;
+    private Vector3 moveDir;
 
     private void Start()
     {
-        //Sets rigidbody
-        rb = transform.GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
+    }
+
+    private void Update()
+    {
+        moveDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.AddForce(new Vector3(0, jumpMultiplier, 0));
+        }
+
+        #region Debugs
+        //Debug lines
+        Debug.DrawLine(transform.position, transform.position + transform.forward * 1.5f, Color.blue);
+        Debug.DrawLine(transform.position, transform.position + (transform.forward - transform.right) * 1.5f, Color.red);
+        Debug.DrawLine(transform.position, transform.position + (transform.forward + transform.right) * 1.5f, Color.red);
+        #endregion
     }
 
     private void FixedUpdate()
     {
-        #region Velocity Change
-        //Sets velocity
-        Vector3 MoveVelocity = Vector3.Lerp(rb.velocity, (transform.forward * Input.GetAxis("Vertical") + transform.right * Input.GetAxis("Horizontal")), speed * Time.fixedDeltaTime);
-
-        //Clamping Velocity
-        MoveVelocity.x = Mathf.Clamp(MoveVelocity.x, -maxGroundVelocity, maxGroundVelocity);
-        MoveVelocity.y = Mathf.Clamp(MoveVelocity.y, -maxGroundVelocity, maxGroundVelocity);
-        MoveVelocity.z = Mathf.Clamp(MoveVelocity.z, -maxGroundVelocity, maxGroundVelocity);
-
-        //Moves rigidbody in the facing direction
-        rb.velocity = MoveVelocity;
-        #endregion
+        rb.MovePosition(transform.position + (moveDir * speed * Time.deltaTime));
     }
 }

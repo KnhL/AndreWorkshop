@@ -135,7 +135,7 @@ Material:
     m_Floats:
     - EdgeSize: 1
     - NoiseScale: 0.05
-    - StaticLenght: 1
+    - StaticLenght: 0
     - StaticOn: 1
     - StaticScale: 100
     - StaticSpeed: 100

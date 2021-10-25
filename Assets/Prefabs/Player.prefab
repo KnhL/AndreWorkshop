@@ -2899,6 +2899,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: {x: 2, y: 2}
   lockCursor: 1
+  lockCamera: 0
   clampInDegrees: {x: 360, y: 180}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
@@ -6841,7 +6842,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 511
+  m_VersionIndex: 550
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -8502,6 +8503,7 @@ GameObject:
   - component: {fileID: 908133468198498418}
   - component: {fileID: 908133468198498421}
   - component: {fileID: 908133468198498420}
+  - component: {fileID: 1575913320319004222}
   - component: {fileID: 908133468198498423}
   m_Layer: 0
   m_Name: DimStick
@@ -8590,6 +8592,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1575913320319004222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908133468198498409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d21a6048f4a11c42b5a770d1b4f3250, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  freqSlid: {fileID: 9925380}
+  camBehavior: {fileID: 908133467463841042}
+  animator: {fileID: 908133468198498423}
+  radioSelect: 102
 --- !u!95 &908133468198498423
 Animator:
   serializedVersion: 3
@@ -9779,13 +9797,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1350954669382321386}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.62, y: 0, z: 0}
+  m_LocalRotation: {x: -0.21643952, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: -3.62006, y: -0.0050315857, z: 0.0010528564}
   m_LocalScale: {x: 10000, y: 10000, z: 10000}
   m_Children: []
   m_Father: {fileID: 389072959723050999}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25, y: 0, z: 0}
 --- !u!33 &189826401606847904
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -9896,11 +9914,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd13ec1bc7a7064bbd34845de2b7d27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
   wantedFreq: 80
   frequency: 0
   dimSeeMaterial: {fileID: 2100000, guid: 1eee2b80a739b4d418738326443313f6, type: 2}
-  xLimit: 120
-  rotSpeed: 100
+  camBehavior: {fileID: 908133467463841042}
+  xLimit: 220
+  rotSpeed: 200
 --- !u!54 &9925382
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9942,13 +9962,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663007941900341146}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.58, y: 0.000030517578, z: -0}
+  m_LocalRotation: {x: -0.21643952, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: -3.5800705, y: -0.005077362, z: 0.0010223389}
   m_LocalScale: {x: 10000, y: 10000, z: 10000}
   m_Children: []
   m_Father: {fileID: 389072959723050999}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -25, y: 0, z: 0}
 --- !u!33 &1524947658310597765
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FrequencySlider : MonoBehaviour
 {
+    public bool selected;
+
     [Range(0, 100)]
     public float wantedFreq;
 
@@ -15,6 +17,9 @@ public class FrequencySlider : MonoBehaviour
     private Material dimSeeMaterial;
 
     [SerializeField]
+    private CameraBehavior camBehavior;
+
+    [SerializeField]
     private float xLimit = 120;
 
     [SerializeField]
@@ -22,11 +27,9 @@ public class FrequencySlider : MonoBehaviour
 
     float angleX = 0.0f;
    
-    
-   
     private void Update()
     {
-        //this.transform
+        frequency = (angleX / xLimit) * 100;
 
         //transform.localEulerAngles = new Vector3(frequency * xLimit, 0, 0);
 
@@ -36,17 +39,54 @@ public class FrequencySlider : MonoBehaviour
 
             dimSeeMaterial.SetFloat("StaticLenght", newStaticLenght);
         }
+        else
+        {
+            float newStaticLenght = Mathf.Lerp(dimSeeMaterial.GetFloat("StaticLenght"), 1, 0.2f);
+
+            dimSeeMaterial.SetFloat("StaticLenght", newStaticLenght);
+        }
+
+        if(dimSeeMaterial.GetFloat("StaticLenght") <= 0.01)
+        {
+            dimSeeMaterial.SetFloat("StaticLenght", 0);
+        }
+        if(dimSeeMaterial.GetFloat("StaticLenght") >= 0.98)
+        {
+            dimSeeMaterial.SetFloat("StaticLenght", 1);
+        }
+
+        
 
     }
 
     private void OnMouseDrag()
     {
-        angleX += Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime;
-        angleX = Mathf.Clamp(angleX, -25, xLimit);
-        transform.localRotation = Quaternion.Euler(angleX, 0.0f, 0.0f);
+        if(selected == true)
+        {
+            angleX += Input.GetAxis("Mouse X") * rotSpeed * Time.deltaTime;
+            angleX = Mathf.Clamp(angleX, 0, xLimit);
+            transform.localRotation = Quaternion.Euler(angleX, 0.0f, 0.0f);
 
-        //angleY += Input.GetAxis("Mouse Y") * rotSpeed * Time.deltaTime;
-        //angleY = Mathf.Clamp(angleY, -20.0f, 20.0f);
-        //transform.rotation = Quaternion.Euler(angleY, 0.0f, 0.0f);
+            camBehavior.LockCur(true);
+
+            camBehavior.lockCamera = true;
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        if (selected == true)
+        {
+            camBehavior.LockCur(false);
+
+            camBehavior.lockCamera = false;
+        }
+
+        if (selected == false)
+        {
+            camBehavior.LockCur(true);
+
+            camBehavior.lockCamera = false;
+        }
     }
 }

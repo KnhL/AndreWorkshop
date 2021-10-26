@@ -153,7 +153,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.49019608, g: 0, b: 0, a: 1}
   m_Intensity: 1448.9631
   m_Range: 0.6
   m_SpotAngle: 30
@@ -6842,7 +6842,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 550
+  m_VersionIndex: 562
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -9068,7 +9068,7 @@ GameObject:
   - component: {fileID: 908133468302018843}
   m_Layer: 2
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9868,7 +9868,7 @@ GameObject:
   - component: {fileID: 9925382}
   m_Layer: 0
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: RadioSlider
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

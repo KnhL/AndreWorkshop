@@ -133,6 +133,13 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - EdgeSize: 1
+    - NoiseScale: 0.05
+    - StaticLenght: 0
+    - StaticOn: 1
+    - StaticScale: 100
+    - StaticSpeed: 100
+    - SurfaceMovementSpeed: 0.2
     - _AO: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
@@ -268,6 +275,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - BorderColor: {r: 0.62264144, g: 0.12629047, b: 0.12629047, a: 1}
+    - EdgeColor: {r: 0.4811321, g: 0, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

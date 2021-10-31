@@ -28,6 +28,8 @@ public class EnemySeePlayer : MonoBehaviour
             {
                 Debug.Log(hit.collider.name);
 
+                //Debug.Log(hit.distance);
+
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     if (timer <= timerMax)

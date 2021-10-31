@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyBehavior : MonoBehaviour
 {
     public bool seenPlayer = false;
 
     public GameObject player;
+
+    [SerializeField]
+    private NavMeshAgent navAgent;
 
     [SerializeField]
     private GameObject eye;
@@ -24,12 +28,20 @@ public class EnemyBehavior : MonoBehaviour
 
     private Vector3 playerLastPos;
 
+    private Vector3 targetDestination;
+
     private float timer;
+
+    private float glowTimer;
     
 
     private void Start()
     {
-        eyeStartQuat = eye.transform.rotation;
+        targetDestination = this.transform.position;
+
+        eyeStartQuat = eye.transform.localRotation;
+
+        Debug.Log(eyeStartQuat);
     }
 
     private void Update()
@@ -45,10 +57,19 @@ public class EnemyBehavior : MonoBehaviour
             float newHeightValue = Mathf.Lerp(eyeMat.GetFloat("Height"), 2, 0.05f);
             eyeMat.SetFloat("Height", newHeightValue);
 
-            float newGlowMultiplier = Mathf.Lerp(irisMat.GetFloat("GlowMultiplier"), 200, 0.1f);
-            irisMat.SetFloat("GlowMultiplier", newGlowMultiplier);
+            glowTimer += Time.deltaTime;
+
+            if (glowTimer >= 0.5f)
+            {
+                glowTimer = 0.5f;
+
+                float newGlowMultiplier = Mathf.Lerp(irisMat.GetFloat("GlowMultiplier"), 200, 0.2f);
+                irisMat.SetFloat("GlowMultiplier", newGlowMultiplier);
+            }
 
             playerLastPos = player.transform.position;
+
+            targetDestination = playerLastPos;
 
             timer = 0;
             
@@ -66,12 +87,16 @@ public class EnemyBehavior : MonoBehaviour
 
             timer += Time.deltaTime;
 
+            glowTimer = 0;
+
             if(timer >= 5)
             {
                 timer = 5;
 
-                eye.transform.rotation = Quaternion.Lerp(eye.transform.rotation, eyeStartQuat, 0.05f);
+                eye.transform.localRotation = Quaternion.Lerp(eye.transform.localRotation, eyeStartQuat, 0.05f);
             }
         }
+
+        navAgent.SetDestination(targetDestination);
     }
 }

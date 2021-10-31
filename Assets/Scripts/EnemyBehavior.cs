@@ -59,11 +59,11 @@ public class EnemyBehavior : MonoBehaviour
 
             glowTimer += Time.deltaTime;
 
-            if (glowTimer >= 0.5f)
+            if (glowTimer >= 0.2f)
             {
-                glowTimer = 0.5f;
+                glowTimer = 0.2f;
 
-                float newGlowMultiplier = Mathf.Lerp(irisMat.GetFloat("GlowMultiplier"), 200, 0.2f);
+                float newGlowMultiplier = Mathf.Lerp(irisMat.GetFloat("GlowMultiplier"), 200, 0.1f);
                 irisMat.SetFloat("GlowMultiplier", newGlowMultiplier);
             }
 

@@ -5,6 +5,9 @@ using UnityEngine;
 public class EnemySeePlayer : MonoBehaviour
 {
     [SerializeField]
+    private GameObject player;
+
+    [SerializeField]
     private EnemyBehavior enemyScript;
 
     [SerializeField]
@@ -22,6 +25,8 @@ public class EnemySeePlayer : MonoBehaviour
         {
             RaycastHit hit;
 
+            player = other.gameObject;
+
             Debug.DrawRay(this.transform.position, other.transform.position - this.transform.position, Color.white, Vector3.Distance(this.transform.position, other.transform.position));
 
             if (Physics.Raycast(this.transform.position, other.transform.position - this.transform.position, out hit, Vector3.Distance(this.transform.position, other.transform.position), raycastLayer))
@@ -32,6 +37,10 @@ public class EnemySeePlayer : MonoBehaviour
 
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
+                    var dimSeeBehavior = player.GetComponentInChildren<DimSeeBehavior>();
+                    dimSeeBehavior.ClockAnimStart(true);
+                    dimSeeBehavior.SteamStart(true);
+
                     if (timer <= timerMax)
                     {
                         timer += Time.deltaTime;
@@ -48,6 +57,10 @@ public class EnemySeePlayer : MonoBehaviour
                 }
                 else
                 {
+                    var dimSeeBehavior = player.GetComponentInChildren<DimSeeBehavior>();
+                    dimSeeBehavior.ClockAnimStart(false);
+                    dimSeeBehavior.SteamStart(false);
+
                     timer -= Time.deltaTime;
 
                     if (timer < -0.001)

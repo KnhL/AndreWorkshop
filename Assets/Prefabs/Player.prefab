@@ -339,6 +339,7 @@ GameObject:
   - component: {fileID: 1976211669}
   - component: {fileID: 1976211668}
   - component: {fileID: 1976211670}
+  - component: {fileID: 586295152631648930}
   m_Layer: 0
   m_Name: Steam1
   m_TagString: Untagged
@@ -449,8 +450,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe9fdd4aa8589524182589f182f076a8, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -534,6 +535,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &586295152631648930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1976211666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5e6f67c43b96d409e2e6d0694f8918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnTarget: 1
+  vfx: {fileID: 1976211669}
+  vfxTargetString: SpawnRateMultiplier
+  audioS: {fileID: 1976211670}
+  audioMax: 0.1
 --- !u!1 &908133466428210403
 GameObject:
   m_ObjectHideFlags: 0
@@ -7050,7 +7068,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 649
+  m_VersionIndex: 655
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -10083,6 +10101,7 @@ GameObject:
   - component: {fileID: 5767440379911423545}
   - component: {fileID: 7200725986883457346}
   - component: {fileID: 143823995}
+  - component: {fileID: 2733924978291928238}
   m_Layer: 0
   m_Name: Steam2
   m_TagString: Untagged
@@ -10193,8 +10212,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe9fdd4aa8589524182589f182f076a8, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10278,6 +10297,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2733924978291928238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4893080179144360055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5e6f67c43b96d409e2e6d0694f8918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnTarget: 1
+  vfx: {fileID: 5767440379911423545}
+  vfxTargetString: SpawnRateMultiplier
+  audioS: {fileID: 143823995}
+  audioMax: 0.1
 --- !u!1 &5122685131365709888
 GameObject:
   m_ObjectHideFlags: 0
@@ -10373,6 +10409,7 @@ GameObject:
   - component: {fileID: 2197646986404832500}
   - component: {fileID: 7912205404804340055}
   - component: {fileID: 384230070}
+  - component: {fileID: 8797667619969737844}
   m_Layer: 0
   m_Name: Steam3
   m_TagString: Untagged
@@ -10483,8 +10520,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe9fdd4aa8589524182589f182f076a8, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
+  m_PlayOnAwake: 1
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -10568,6 +10605,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &8797667619969737844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5590648558281855547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf5e6f67c43b96d409e2e6d0694f8918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOnTarget: 1
+  vfx: {fileID: 2197646986404832500}
+  vfxTargetString: SpawnRateMultiplier
+  audioS: {fileID: 384230070}
+  audioMax: 0.1
 --- !u!1 &7376681441684983171
 GameObject:
   m_ObjectHideFlags: 0

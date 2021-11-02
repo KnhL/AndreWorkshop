@@ -27,8 +27,6 @@ public class DimSeeBehavior : MonoBehaviour
 
     private float delay;
 
-    private bool playSteamSound;
-
     private void Update()
     {
         delay += Time.deltaTime;
@@ -82,19 +80,19 @@ public class DimSeeBehavior : MonoBehaviour
             {
                 steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 0);
 
-                if (steamObjects[cnt].GetComponent<AudioSource>().isPlaying == true)
-                {
-                    steamObjects[cnt].GetComponent<AudioSource>().Stop();
+                //if (steamObjects[cnt].GetComponent<AudioSource>().isPlaying == true)
+                //{
+                //    steamObjects[cnt].GetComponent<AudioSource>().Stop();
 
-                    playSteamSound = false;
-                }
+                //    playSteamSound = false;
+                //}
             }
         }
     }
 
     private IEnumerator SteamStartCou()
     {
-        playSteamSound = true;
+        //playSteamSound = true;
 
         WaitForSeconds wfs = new WaitForSeconds(1f);
 
@@ -102,10 +100,10 @@ public class DimSeeBehavior : MonoBehaviour
         {
             steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 1);
 
-            if (steamObjects[cnt].GetComponent<AudioSource>().isPlaying != true && playSteamSound == true)
-            {
-                steamObjects[cnt].GetComponent<AudioSource>().Play();
-            }
+            //if (steamObjects[cnt].GetComponent<AudioSource>().isPlaying != true && playSteamSound == true)
+            //{
+            //    steamObjects[cnt].GetComponent<AudioSource>().Play();
+            //}
             
             yield return wfs;
         }

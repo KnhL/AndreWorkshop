@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Diagnostics;
 
 public class MazeGenerator : MonoBehaviour
 {
@@ -9,21 +10,23 @@ public class MazeGenerator : MonoBehaviour
     public int[,] maze;
     public Vector2 startingPoint, endingPoint, currentPoint;
     public List<Vector2> startingPoints, endingPoints;
-    public GameObject floorPrefab;
+    public GameObject floorPrefab, floorNoWallPrefab;
     public List<GameObject> floor;
     public float mazeDifferenceMultiplier, MDMstart, MDMmin, MDMdecrease;
     public float waitTimeCalc, waitTimeSpawn;
     public List<Vector4> excludingPoints;
     public Material mat, mat1, mat2, mat3, mat4, mat5;
+    GameObject mainPaths;
+    GameObject SidePaths;
+    GameObject excludedPoints;
+    Stopwatch timer = new Stopwatch();
 
     private void Start()
     {
-        for (int i = 0; i < startingPoints.Count; i++)
-        {
-            startingPoints[i] = new Vector2(Mathf.Round(startingPoints[i].x / scalingMultiplier) * scalingMultiplier, Mathf.Round(startingPoints[i].y / scalingMultiplier) * scalingMultiplier);
-            endingPoints[i] = new Vector2(Mathf.Round(endingPoints[i].x / scalingMultiplier) * scalingMultiplier, Mathf.Round(endingPoints[i].y / scalingMultiplier) * scalingMultiplier);
-        }
-
+        timer.Start();
+        mainPaths = new GameObject("Main Paths");
+        SidePaths = new GameObject("Side Paths");
+        excludedPoints = new GameObject("Excluded Points");
         width++;
         height++;
         startingPoint = startingPoints[0];
@@ -32,10 +35,10 @@ public class MazeGenerator : MonoBehaviour
         maze[(int)startingPoint.x - 1, (int)startingPoint.y - 1] = 5;
         currentPoint = startingPoint;
         mazeDifferenceMultiplier = MDMstart;
-        StartCoroutine(ExcludePoints());
+        ExcludePoints();
     }
 
-    IEnumerator ExcludePoints()
+    void ExcludePoints()
     {
         for (int i = 0; i < excludingPoints.Count; i++)
         {
@@ -43,68 +46,20 @@ public class MazeGenerator : MonoBehaviour
             {
                 for (int y = 0; y < excludingPoints[i].w; y++)
                 {
-                    Debug.Log($"X - {(int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x} and Y - {(int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y}");
-                    maze[(int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y] = 5;
-                    GameObject obj = Instantiate(floorPrefab, new Vector3((int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, -0.25f, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y), Quaternion.identity);
+                    maze[(int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y] = 6;
+                    GameObject obj = Instantiate(floorNoWallPrefab, new Vector3((int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, -0.25f, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y), Quaternion.identity);
                     obj.GetComponent<MeshRenderer>().material = mat;
-                    yield return new WaitForSeconds(waitTimeCalc); maze[(int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y] = 5;
+                    obj.transform.SetParent(excludedPoints.transform);
                 }
             }
         }
-        StartCoroutine(GenerateMaze());
+        GenerateMaze();
     }
 
-    public IEnumerator createPath()
+    public void GenerateMaze()
     {
-        Vector2 newPoint = startingPoint;
-        GameObject obj = Instantiate(floorPrefab, new Vector3(currentPoint.x, 0, currentPoint.y), Quaternion.identity);
-        obj.transform.localScale *= scalingMultiplier;
-        while (newPoint != endingPoint)
-        {
-            Debug.Log($"Floor Posistion: {newPoint} - Path: {startingPoints.IndexOf(startingPoint) + 1} - Current Start: {startingPoints.IndexOf(startingPoint)} - Current End: {endingPoints.IndexOf(endingPoint)}");
-            if (maze[(int)newPoint.x, (int)newPoint.y] == 1)
-            {
-                newPoint = new Vector2(newPoint.x, newPoint.y + scalingMultiplier);
-            }
-            else if (maze[(int)newPoint.x, (int)newPoint.y] == 2)
-            {
-                newPoint = new Vector2(newPoint.x, newPoint.y - scalingMultiplier);
-            }
-            else if (maze[(int)newPoint.x, (int)newPoint.y] == 3)
-            {
-                newPoint = new Vector2(newPoint.x + scalingMultiplier, newPoint.y);
-            }
-            else if (maze[(int)newPoint.x, (int)newPoint.y] == 4)
-            {
-                newPoint = new Vector2(newPoint.x - scalingMultiplier, newPoint.y);
-            }
-            GameObject newObj = Instantiate(floorPrefab, new Vector3(newPoint.x, 0, newPoint.y), Quaternion.identity);
-            newObj.transform.localScale *= scalingMultiplier;
-            floor.Add(newObj);
-            yield return new WaitForSeconds(waitTimeSpawn);
-            Debug.Log($"CurrentPoint: {currentPoint}");
-            Debug.Log($"NewPoint: {newPoint}");
-            Debug.Log($"Endingpoint: {endingPoint}");
-            if (newPoint == endingPoint && startingPoints.IndexOf(startingPoint) != startingPoints.Count - 1)
-            {
-                startingPoint = startingPoints[startingPoints.IndexOf(startingPoint) + 1];
-                endingPoint = endingPoints[endingPoints.IndexOf(endingPoint) + 1];
-                newPoint = startingPoint;
-            }
-        }
-
-        for (int i = 0; i < floor.Count; i++)
-        {
-            maze[(int)floor[i].transform.position.x, (int)floor[i].transform.position.y] = 5;
-        }
-    }
-
-    public IEnumerator GenerateMaze()
-    {
-        GameObject parrent = new GameObject("Debug");
         while (currentPoint != endingPoint)
         {
-            Debug.Log($"Point: {currentPoint} - Path: {startingPoints.IndexOf(startingPoint) + 1} - Current Start: {startingPoints.IndexOf(startingPoint)} - Current End: {endingPoints.IndexOf(endingPoint)}");
             Vector2 newPoint = currentPoint;
             int direction = Random.Range(1, 5);
 
@@ -125,42 +80,11 @@ public class MazeGenerator : MonoBehaviour
                 newPoint = new Vector2(newPoint.x - scalingMultiplier, newPoint.y);
             }
 
-            if (newPoint != currentPoint && maze[(int)newPoint.x, (int)newPoint.y] != 5)
+            if (newPoint != currentPoint && maze[(int)newPoint.x, (int)newPoint.y] != 6)
             {
                 maze[(int)currentPoint.x, (int)currentPoint.y] = direction;
 
-                if (maze[(int)newPoint.x, (int)newPoint.y] != 5)
-                {
-                    GameObject obj = Instantiate(floorPrefab, new Vector3((int)newPoint.x, 0, (int)newPoint.y), Quaternion.identity);
-                    Debug.Log(new Vector3((int)newPoint.x, 0, (int)newPoint.y));
-                    obj.transform.localScale *= scalingMultiplier;
-                    obj.transform.parent = parrent.transform;
-
-                    if (maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
-                    {
-                        obj.GetComponent<MeshRenderer>().material = mat1;
-                    }
-                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
-                    {
-                        obj.GetComponent<MeshRenderer>().material = mat2;
-                    }
-                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
-                    {
-                        obj.GetComponent<MeshRenderer>().material = mat3;
-                    }
-                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
-                    {
-                        obj.GetComponent<MeshRenderer>().material = mat4;
-                    }
-                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 5)
-                    {
-                        obj.GetComponent<MeshRenderer>().material = mat5;
-                    }
-                }
-
                 currentPoint = newPoint;
-
-                yield return new WaitForSeconds(waitTimeCalc);
 
                 if (mazeDifferenceMultiplier > MDMmin)
                 {
@@ -179,14 +103,305 @@ public class MazeGenerator : MonoBehaviour
                     currentPoint = startingPoint;
                 }
             }
-            else
-            {
-                Debug.Log("Retry");
-            }
         }
 
         startingPoint = startingPoints[0];
         endingPoint = endingPoints[0];
-        StartCoroutine(createPath());
+        currentPoint = startingPoint;
+        GenerateMainPaths();
+    }
+
+    public void GenerateMainPaths()
+    {
+        Vector2 newPoint = startingPoint;
+        GameObject oldObj = null;
+        while (newPoint != endingPoint)
+        {
+            if (newPoint == startingPoint)
+            {
+                GameObject obj = Instantiate(floorPrefab, new Vector3((int)startingPoint.x, 0, (int)startingPoint.y), Quaternion.identity);
+                obj.transform.localScale *= scalingMultiplier;
+                obj.transform.SetParent(mainPaths.transform);
+                floor.Add(obj);
+                oldObj = obj;
+                Ray ray = new Ray(new Vector3((width - 1) / 2, 1, (height - 1) / 2), new Vector3(startingPoint.x, 1, startingPoint.y) - new Vector3((width - 1) / 2, 1, (height - 1) / 2));
+                UnityEngine.Debug.DrawRay(new Vector3((width - 1) / 2, 1, (height - 1) / 2), new Vector3(startingPoint.x, 1, startingPoint.y) - new Vector3((width - 1) / 2, 1, (height - 1) / 2), Color.red);
+                RaycastHit hit;
+                if (Physics.Raycast(ray, out hit))
+                {
+                    Destroy(hit.transform.gameObject);
+                }
+                currentPoint = startingPoint;
+            }
+
+            if (maze[(int)newPoint.x, (int)newPoint.y] == 1)
+            {
+                newPoint = new Vector2(newPoint.x, newPoint.y + scalingMultiplier);
+            }
+            else if (maze[(int)newPoint.x, (int)newPoint.y] == 2)
+            {
+                newPoint = new Vector2(newPoint.x, newPoint.y - scalingMultiplier);
+            }
+            else if (maze[(int)newPoint.x, (int)newPoint.y] == 3)
+            {
+                newPoint = new Vector2(newPoint.x + scalingMultiplier, newPoint.y);
+            }
+            else if (maze[(int)newPoint.x, (int)newPoint.y] == 4)
+            {
+                newPoint = new Vector2(newPoint.x - scalingMultiplier, newPoint.y);
+            }
+            GameObject newObj = Instantiate(floorPrefab, new Vector3(newPoint.x, 0, newPoint.y), Quaternion.identity);
+            newObj.transform.localScale *= scalingMultiplier;
+            newObj.transform.SetParent(mainPaths.transform);
+            floor.Add(newObj);
+            if (maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
+            {
+                Destroy(newObj.transform.Find("South Wall").gameObject);
+            }
+            else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
+            {
+                Destroy(newObj.transform.Find("North Wall").gameObject);
+            }
+            else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
+            {
+                Destroy(newObj.transform.Find("West Wall").gameObject);
+            }
+            else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
+            {
+                Destroy(newObj.transform.Find("East Wall").gameObject);
+            }
+            if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
+            {
+                Destroy(oldObj.transform.Find("North Wall").gameObject);
+            }
+            else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
+            {
+                Destroy(oldObj.transform.Find("South Wall").gameObject);
+            }
+            else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
+            {
+                Destroy(oldObj.transform.Find("East Wall").gameObject);
+            }
+            else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
+            {
+                Destroy(oldObj.transform.Find("West Wall").gameObject);
+            }
+
+            if (newPoint == endingPoint)
+            {
+                if (endingPoints.IndexOf(endingPoint) == 0)
+                {
+                    Destroy(newObj.transform.Find("North Wall").gameObject);
+                }
+                else if (endingPoints.IndexOf(endingPoint) == 1)
+                {
+                    Destroy(newObj.transform.Find("South Wall").gameObject);
+                }
+                else if (endingPoints.IndexOf(endingPoint) == 2)
+                {
+                    Destroy(newObj.transform.Find("East Wall").gameObject);
+                }
+                else if (endingPoints.IndexOf(endingPoint) == 3)
+                {
+                    Destroy(newObj.transform.Find("West Wall").gameObject);
+                }
+
+                if (startingPoints.IndexOf(startingPoint) != startingPoints.Count - 1)
+                {
+                    startingPoint = startingPoints[startingPoints.IndexOf(startingPoint) + 1];
+                    endingPoint = endingPoints[endingPoints.IndexOf(endingPoint) + 1];
+                    newPoint = startingPoint;
+                }
+            }
+            currentPoint = newPoint;
+            oldObj = newObj;
+        }
+
+        for (int i = 0; i < floor.Count; i++)
+        {
+            maze[(int)floor[i].transform.position.x, (int)floor[i].transform.position.z] = 5;
+        }
+        GenerateSidePaths();
+    }
+
+    void GenerateSidePaths()
+    {
+        int spotsUsed = 0;
+        while (spotsUsed < 10201)
+        {
+            int newX = Mathf.RoundToInt(Random.Range(0, width) / scalingMultiplier) * scalingMultiplier;
+            int newY = Mathf.RoundToInt(Random.Range(0, height) / scalingMultiplier) * scalingMultiplier;
+
+            while (maze[newX, newY] == 5 || maze[newX, newY] == 6)
+            {
+                newX = Mathf.RoundToInt(Random.Range(0, width) / scalingMultiplier) * scalingMultiplier;
+                newY = Mathf.RoundToInt(Random.Range(0, height) / scalingMultiplier) * scalingMultiplier;
+            }
+
+            Vector2 startPoint = new Vector2(newX, newY);
+            currentPoint = startPoint;
+            while (maze[(int)currentPoint.x, (int)currentPoint.y] != 5)
+            {
+                Vector2 newPointCalc = currentPoint;
+                int direction = Random.Range(1, 5);
+
+                if (direction == 1 && newPointCalc.y + scalingMultiplier < height - 1)
+                {
+                    newPointCalc = new Vector2(newPointCalc.x, newPointCalc.y + scalingMultiplier);
+                }
+                else if (direction == 2 && newPointCalc.y - scalingMultiplier > 0)
+                {
+                    newPointCalc = new Vector2(newPointCalc.x, newPointCalc.y - scalingMultiplier);
+                }
+                else if (direction == 3 && newPointCalc.x + scalingMultiplier < width - 1)
+                {
+                    newPointCalc = new Vector2(newPointCalc.x + scalingMultiplier, newPointCalc.y);
+                }
+                else if (direction == 4 && newPointCalc.x - scalingMultiplier > 0)
+                {
+                    newPointCalc = new Vector2(newPointCalc.x - scalingMultiplier, newPointCalc.y);
+                }
+
+                if (maze[(int)newPointCalc.x, (int)newPointCalc.y] != 6)
+                {
+                    maze[(int)currentPoint.x, (int)currentPoint.y] = direction;
+                    currentPoint = newPointCalc;
+                }
+            }
+
+            Vector2 endPoint = new Vector2((int)currentPoint.x, (int)currentPoint.y);
+            Vector2 newPointPath = startPoint;
+            GameObject obj = Instantiate(floorPrefab, new Vector3((int)startPoint.x, 0, (int)startPoint.y), Quaternion.identity);
+            obj.transform.localScale *= scalingMultiplier;
+            obj.transform.SetParent(SidePaths.transform);
+            floor.Add(obj);
+            GameObject oldObj = obj;
+            while (newPointPath != endPoint)
+            {
+                currentPoint = newPointPath;
+                if (maze[(int)newPointPath.x, (int)newPointPath.y] == 1)
+                {
+                    newPointPath = new Vector2(newPointPath.x, newPointPath.y + scalingMultiplier);
+                }
+                else if (maze[(int)newPointPath.x, (int)newPointPath.y] == 2)
+                {
+                    newPointPath = new Vector2(newPointPath.x, newPointPath.y - scalingMultiplier);
+                }
+                else if (maze[(int)newPointPath.x, (int)newPointPath.y] == 3)
+                {
+                    newPointPath = new Vector2(newPointPath.x + scalingMultiplier, newPointPath.y);
+                }
+                else if (maze[(int)newPointPath.x, (int)newPointPath.y] == 4)
+                {
+                    newPointPath = new Vector2(newPointPath.x - scalingMultiplier, newPointPath.y);
+                }
+
+                if (newPointPath != endPoint)
+                {
+                    GameObject newObj = Instantiate(floorPrefab, new Vector3(newPointPath.x, 0, newPointPath.y), Quaternion.identity);
+                    newObj.transform.localScale *= scalingMultiplier;
+                    newObj.transform.SetParent(SidePaths.transform);
+                    floor.Add(newObj);
+
+                    if (maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
+                    {
+                        Destroy(newObj.transform.Find("South Wall").gameObject);
+                    }
+                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
+                    {
+                        Destroy(newObj.transform.Find("North Wall").gameObject);
+                    }
+                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
+                    {
+                        Destroy(newObj.transform.Find("West Wall").gameObject);
+                    }
+                    else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
+                    {
+                        Destroy(newObj.transform.Find("East Wall").gameObject);
+                    }
+
+                    if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
+                    {
+                        Destroy(oldObj.transform.Find("North Wall").gameObject);
+                    }
+                    else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
+                    {
+                        Destroy(oldObj.transform.Find("South Wall").gameObject);
+                    }
+                    else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
+                    {
+                        Destroy(oldObj.transform.Find("East Wall").gameObject);
+                    }
+                    else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
+                    {
+                        Destroy(oldObj.transform.Find("West Wall").gameObject);
+                    }
+                    oldObj = newObj;
+                }
+                else
+                {
+                    Ray ray = new Ray(new Vector3(newPointPath.x, 1, newPointPath.y), Vector3.down);
+                    UnityEngine.Debug.DrawRay(new Vector3(currentPoint.x, 1, currentPoint.y), new Vector3(newPointPath.x, 1, newPointPath.y) - new Vector3(currentPoint.x, 1, currentPoint.y), Color.red);
+                    RaycastHit hit;
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        GameObject newObj = hit.transform.gameObject;
+
+                        if (maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
+                        {
+                            Destroy(newObj.transform.Find("South Wall").gameObject);
+                        }
+                        else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
+                        {
+                            Destroy(newObj.transform.Find("North Wall").gameObject);
+                        }
+                        else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
+                        {
+                            Destroy(newObj.transform.Find("West Wall").gameObject);
+                        }
+                        else if (maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
+                        {
+                            Destroy(newObj.transform.Find("East Wall").gameObject);
+                        }
+
+                        if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 1)
+                        {
+                            Destroy(oldObj.transform.Find("North Wall").gameObject);
+                        }
+                        else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 2)
+                        {
+                            Destroy(oldObj.transform.Find("South Wall").gameObject);
+                        }
+                        else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 3)
+                        {
+                            Destroy(oldObj.transform.Find("East Wall").gameObject);
+                        }
+                        else if (oldObj && maze[(int)currentPoint.x, (int)currentPoint.y] == 4)
+                        {
+                            Destroy(oldObj.transform.Find("West Wall").gameObject);
+                        }
+                    }
+                }
+            }
+
+            for (int i = 0; i < floor.Count; i++)
+            {
+                maze[(int)floor[i].transform.position.x, (int)floor[i].transform.position.z] = 5;
+            }
+            spotsUsed = 0;
+            for (int x = 0; x < width - 1 / scalingMultiplier; x += scalingMultiplier)
+            {
+                for (int y = 0; y < height - 1 / scalingMultiplier; y += scalingMultiplier)
+                {
+                    if (maze[x, y] == 5 || maze[x, y] == 6)
+                    {
+                        spotsUsed++;
+                    }
+                }
+            }
+            UnityEngine.Debug.Log($"Spots used: {spotsUsed}");
+        }
+        timer.Stop();
+        UnityEngine.Debug.Log($"Done - {timer.Elapsed}");
     }
 }

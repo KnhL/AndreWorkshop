@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4655633030466149392}
   - component: {fileID: 4655633030466149398}
   - component: {fileID: 4655633030466149393}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RadioFrequencyChangeZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

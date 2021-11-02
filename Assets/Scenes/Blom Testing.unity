@@ -347,21 +347,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 500
   height: 500
-  scalingMultiplier: 1
+  scalingMultiplier: 5
   startingPoint: {x: 250, y: 250}
   endingPoint: {x: 450, y: 250}
   currentPoint: {x: 0, y: 0}
   startingPoints:
-  - {x: 250, y: 263}
-  - {x: 250, y: 237}
-  - {x: 237, y: 250}
-  - {x: 263, y: 250}
+  - {x: 250, y: 265}
+  - {x: 250, y: 235}
+  - {x: 265, y: 250}
+  - {x: 235, y: 250}
   endingPoints:
   - {x: 250, y: 450}
   - {x: 250, y: 50}
-  - {x: 50, y: 250}
   - {x: 450, y: 250}
+  - {x: 50, y: 250}
   floorPrefab: {fileID: 3883657447232913142, guid: 944e246d0c34077479a8313da0ae59e2, type: 3}
+  floorNoWallPrefab: {fileID: 3883657447232913142, guid: 9a57d9579de2c664ab0a3d6bb64e468d, type: 3}
   floor: []
   mazeDifferenceMultiplier: 1
   MDMstart: 0.25
@@ -370,7 +371,11 @@ MonoBehaviour:
   waitTimeCalc: 0
   waitTimeSpawn: 0
   excludingPoints:
-  - {x: 250, y: 250, z: 28, w: 28}
+  - {x: 250, y: 250, z: 25, w: 25}
+  - {x: 250, y: 475, z: 46, w: 46}
+  - {x: 250, y: 25, z: 46, w: 46}
+  - {x: 25, y: 250, z: 46, w: 46}
+  - {x: 475, y: 250, z: 46, w: 46}
   mat: {fileID: 2100000, guid: f4a6d97584eafa344a46b59f867ed287, type: 2}
   mat1: {fileID: 2100000, guid: e3a5c03ada51be844abc4f60feb6e5a2, type: 2}
   mat2: {fileID: 2100000, guid: 9cbe8410911b79c46b873232c1d530b7, type: 2}
@@ -409,7 +414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &514141286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -582,13 +587,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 514141285}
-  m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 250, y: 400, z: 250}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 250, y: 600, z: 250}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: {x: 2, y: 2}
   lockCursor: 1
+  lockCamera: 0
   clampInDegrees: {x: 360, y: 180}
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}

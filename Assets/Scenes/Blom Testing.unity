@@ -363,6 +363,8 @@ MonoBehaviour:
   - {x: 50, y: 250}
   floorPrefab: {fileID: 3883657447232913142, guid: 944e246d0c34077479a8313da0ae59e2, type: 3}
   floorNoWallPrefab: {fileID: 3883657447232913142, guid: 9a57d9579de2c664ab0a3d6bb64e468d, type: 3}
+  mainFloor: {fileID: 4387815380282564410, guid: 52ecbd1679622be4eab7136bea488e8a, type: 3}
+  playerPrefab: {fileID: 908133468302018842, guid: 9965c02c3d125ef41a301afc79c365bb, type: 3}
   floor: []
   mazeDifferenceMultiplier: 1
   MDMstart: 0.25
@@ -377,11 +379,6 @@ MonoBehaviour:
   - {x: 25, y: 250, z: 46, w: 46}
   - {x: 475, y: 250, z: 46, w: 46}
   mat: {fileID: 2100000, guid: f4a6d97584eafa344a46b59f867ed287, type: 2}
-  mat1: {fileID: 2100000, guid: e3a5c03ada51be844abc4f60feb6e5a2, type: 2}
-  mat2: {fileID: 2100000, guid: 9cbe8410911b79c46b873232c1d530b7, type: 2}
-  mat3: {fileID: 2100000, guid: 6aa6182dd90cd4c448393b38490ab7c8, type: 2}
-  mat4: {fileID: 2100000, guid: 95c3aa5a3a759fe4c965b9e5d85917a8, type: 2}
-  mat5: {fileID: 2100000, guid: bc8f7edc5e37c4542831498b2027804c, type: 2}
 --- !u!4 &454278123
 Transform:
   m_ObjectHideFlags: 0
@@ -414,7 +411,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &514141286
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -10,12 +10,12 @@ public class MazeGenerator : MonoBehaviour
     public int[,] maze;
     public Vector2 startingPoint, endingPoint, currentPoint;
     public List<Vector2> startingPoints, endingPoints;
-    public GameObject floorPrefab, floorNoWallPrefab;
+    public GameObject floorPrefab, floorNoWallPrefab, mainFloor, playerPrefab;
     public List<GameObject> floor;
     public float mazeDifferenceMultiplier, MDMstart, MDMmin, MDMdecrease;
     public float waitTimeCalc, waitTimeSpawn;
     public List<Vector4> excludingPoints;
-    public Material mat, mat1, mat2, mat3, mat4, mat5;
+    public Material mat;
     GameObject mainPaths;
     GameObject SidePaths;
     GameObject excludedPoints;
@@ -47,9 +47,6 @@ public class MazeGenerator : MonoBehaviour
                 for (int y = 0; y < excludingPoints[i].w; y++)
                 {
                     maze[(int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y] = 6;
-                    GameObject obj = Instantiate(floorNoWallPrefab, new Vector3((int)excludingPoints[i].x - (int)excludingPoints[i].z / 2 + x, -0.25f, (int)excludingPoints[i].y - (int)excludingPoints[i].w / 2 + y), Quaternion.identity);
-                    obj.GetComponent<MeshRenderer>().material = mat;
-                    obj.transform.SetParent(excludedPoints.transform);
                 }
             }
         }
@@ -401,6 +398,17 @@ public class MazeGenerator : MonoBehaviour
             }
             UnityEngine.Debug.Log($"Spots used: {spotsUsed}");
         }
+        for (int i = 0; i < floor.Count; i++)
+        {
+            MeshRenderer[] renderes = floor[i].GetComponentsInChildren<MeshRenderer>();
+
+            for (int r = 0; r < renderes.Length; r++)
+            {
+                renderes[r].enabled = false;
+            }
+        }
+        Instantiate(playerPrefab, new Vector3((width - 1) / 2, 10, (height - 1) / 2), Quaternion.identity);
+        Instantiate(mainFloor, new Vector3((width - 1) / 2, 0, (height - 1) / 2), Quaternion.identity);
         timer.Stop();
         UnityEngine.Debug.Log($"Done - {timer.Elapsed}");
     }

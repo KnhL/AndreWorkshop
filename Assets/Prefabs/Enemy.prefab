@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4284321242335088168}
   m_Layer: 3
   m_Name: Cylinder.004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2074874814646813110}
   m_Layer: 3
   m_Name: monster-projektOnlyBody
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1446668654915983143}
   m_Layer: 3
   m_Name: monster-projektHead
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 8697098911374987394}
   m_Layer: 3
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 3693006262568473134}
   m_Layer: 3
   m_Name: Cone.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 3207471546626431150}
   m_Layer: 3
   m_Name: Cone.002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 8594235831046388390}
   m_Layer: 3
   m_Name: Cylinder.002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -496,7 +496,7 @@ GameObject:
   - component: {fileID: 4245588982479958202}
   m_Layer: 0
   m_Name: Cape
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2511,7 +2511,7 @@ GameObject:
   - component: {fileID: 8442949676415718754}
   m_Layer: 3
   m_Name: Iris
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2593,7 +2593,7 @@ GameObject:
   - component: {fileID: 7399680906733555635}
   m_Layer: 3
   m_Name: EyeOutline
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2675,7 +2675,7 @@ GameObject:
   - component: {fileID: 1569633319301376311}
   m_Layer: 3
   m_Name: Eye
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2794,8 +2794,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seenPlayer: 0
   player: {fileID: 0}
-  isVisibleAudio: {fileID: 0}
-  mRender: {fileID: 4245588982479958203}
   navAgent: {fileID: 7095071521868484586}
   eye: {fileID: 2258636398901185949}
   eyeGoToTrans: {fileID: 8639649678812597960}
@@ -2837,7 +2835,7 @@ GameObject:
   - component: {fileID: 7117540564190119230}
   m_Layer: 3
   m_Name: Cube.006
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2934,7 +2932,7 @@ GameObject:
   - component: {fileID: 7176386350378624594}
   m_Layer: 3
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3029,7 +3027,7 @@ GameObject:
   - component: {fileID: 7278972584240944844}
   m_Layer: 3
   m_Name: CapeCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3075,7 +3073,7 @@ GameObject:
   - component: {fileID: 8746049413075570407}
   m_Layer: 3
   m_Name: Cylinder.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3158,7 +3156,7 @@ GameObject:
   - component: {fileID: 8639649678634238600}
   m_Layer: 0
   m_Name: EnemySeeCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3220,7 +3218,7 @@ GameObject:
   - component: {fileID: 8639649678812597960}
   m_Layer: 3
   m_Name: EyeGoTo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

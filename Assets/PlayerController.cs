@@ -51,6 +51,7 @@ public class PlayerController : MonoBehaviour
 
         if (collision.transform.tag == "Enemy")
         {
+            Debug.Log("Rest");
             StartCoroutine(fadeOut());
         }
     }
@@ -60,8 +61,9 @@ public class PlayerController : MonoBehaviour
         while (fade.color.a < 1)
         {
             Debug.Log("Test");
-            fade.color = new Color(0, 0, 0, fade.color.a + 1f);
+            fade.color = new Color(0, 0, 0, fade.color.a + 0.01f);
             yield return new WaitForSeconds(0.1f);
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

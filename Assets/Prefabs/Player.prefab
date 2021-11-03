@@ -3256,6 +3256,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3c36b4c61529db4da1d80e032bb9dad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVisibleAudio: {fileID: 0}
+  mRender: {fileID: 0}
   sensitivity: {x: 2, y: 2}
   lockCursor: 1
   lockCamera: 0
@@ -6300,6 +6302,7 @@ MonoBehaviour:
   speed: 5
   jumpMultiplier: 250
   route: []
+  fade: {fileID: 6271859580781681736}
 --- !u!1 &908133468304069773
 GameObject:
   m_ObjectHideFlags: 0

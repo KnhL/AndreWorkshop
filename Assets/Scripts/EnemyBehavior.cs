@@ -9,6 +9,15 @@ public class EnemyBehavior : MonoBehaviour
 
     public PlayerController player;
 
+    //[SerializeField]
+    //private Camera mainCam;
+
+    [SerializeField]
+    private AudioSource isVisibleAudio;
+
+    [SerializeField]
+    private SkinnedMeshRenderer mRender;
+
     [SerializeField]
     private NavMeshAgent navAgent;
 
@@ -34,6 +43,8 @@ public class EnemyBehavior : MonoBehaviour
 
     private float glowTimer;
 
+    private float isVisibleTimer = 10;
+
     bool waitForSpawn = false;
     
 
@@ -50,6 +61,20 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
+        isVisibleTimer += Time.deltaTime;
+
+        if (isVisibleTimer >= 10)
+        {
+            isVisibleTimer = 10;
+
+            if (mRender.isVisible == true)
+            {
+                isVisibleAudio.Play();
+
+                isVisibleTimer = 0;
+            }
+        }
+
         if (seenPlayer == true)
         {
             eyeGoToTrans.transform.LookAt(player.transform);

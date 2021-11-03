@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RadioSlider
   - Floor
+  - Enemy
   layers:
   - Default
   - TransparentFX

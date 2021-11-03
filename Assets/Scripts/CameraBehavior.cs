@@ -47,6 +47,15 @@ public class CameraBehavior : MonoBehaviour
 
     //private RaycastHit rHit;
 
+    //RENDERING----------------------------------------------
+
+    [SerializeField]
+    private AudioSource isVisibleAudio;
+
+    [SerializeField]
+    private SkinnedMeshRenderer mRender;
+
+    private float isVisibleTimer = 10;
 
 
     //CAMERA SMOOTHING --------------------------------------
@@ -100,10 +109,28 @@ public class CameraBehavior : MonoBehaviour
         //Debug.Log("LockCur called");
     }
 
+    private void OnWillRenderObject()
+    {
+        if (isVisibleTimer >= 10)
+        {
+            isVisibleAudio.Play();
+
+            isVisibleTimer = 0;
+        }
+    }
+
+
     private void Update()
     {
+        isVisibleTimer += Time.deltaTime;
 
-        if(lockCursor == false)
+        if (isVisibleTimer >= 10)
+        {
+            isVisibleTimer = 10;
+        }
+
+
+        if (lockCursor == false)
         {
             Cursor.lockState = CursorLockMode.Confined;
         }

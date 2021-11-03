@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +46,20 @@ public class PlayerController : MonoBehaviour
         {
             route.Add(collision.gameObject);
             onGround = true;
+        }
+
+        if (collision.transform.tag == "Enemy")
+        {
+            StartCoroutine(fadeOut());
+        }
+    }
+
+    IEnumerator fadeOut()
+    {
+        while (GetComponentInChildren<Image>().color.a < 1)
+        {
+            GetComponentInChildren<Image>().color = new Color(0, 0, 0, GetComponentInChildren<Image>().color.a - 0.1f);
+            yield return new WaitForSeconds(1);
         }
     }
 }

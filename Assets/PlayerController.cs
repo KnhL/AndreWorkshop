@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private Vector3 moveDir;
     bool onGround;
     public List<GameObject> route;
+    public Image fade;
 
     private void Start()
     {
@@ -50,16 +51,19 @@ public class PlayerController : MonoBehaviour
 
         if (collision.transform.tag == "Enemy")
         {
+            Debug.Log("Rest");
             StartCoroutine(fadeOut());
         }
     }
 
     IEnumerator fadeOut()
     {
-        while (GetComponentInChildren<Image>().color.a < 1)
+        while (fade.color.a < 1)
         {
-            GetComponentInChildren<Image>().color = new Color(0, 0, 0, GetComponentInChildren<Image>().color.a - 0.1f);
-            yield return new WaitForSeconds(1);
+            Debug.Log("Test");
+            fade.color = new Color(0, 0, 0, fade.color.a + 0.01f);
+            yield return new WaitForSeconds(0.1f);
         }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

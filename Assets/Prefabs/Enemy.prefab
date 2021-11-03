@@ -2812,8 +2812,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   seenPlayer: 0
   player: {fileID: 0}
-  isVisibleAudio: {fileID: 0}
-  mRender: {fileID: 4245588982479958203}
   navAgent: {fileID: 7095071521868484586}
   eye: {fileID: 2258636398901185949}
   eyeGoToTrans: {fileID: 8639649678812597960}

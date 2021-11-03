@@ -50,7 +50,7 @@ public class EnemySeePlayer : MonoBehaviour
                     {
                         timer = timerMax;
 
-                        enemyScript.player = other.gameObject;
+                        enemyScript.player = other.gameObject.GetComponent<PlayerController>();
 
                         enemyScript.seenPlayer = true;
                     }

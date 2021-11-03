@@ -7,7 +7,7 @@ public class EnemyBehavior : MonoBehaviour
 {
     public bool seenPlayer = false;
 
-    public GameObject player;
+    public PlayerController player;
 
     [SerializeField]
     private NavMeshAgent navAgent;
@@ -33,10 +33,14 @@ public class EnemyBehavior : MonoBehaviour
     private float timer;
 
     private float glowTimer;
+
+    bool waitForSpawn = false;
     
 
     private void Start()
     {
+        player = GameObject.Find("Player(Clone)").GetComponent<PlayerController>();
+
         targetDestination = this.transform.position;
 
         eyeStartQuat = eye.transform.localRotation;
@@ -70,6 +74,7 @@ public class EnemyBehavior : MonoBehaviour
             playerLastPos = player.transform.position;
 
             targetDestination = playerLastPos;
+            Debug.Log(targetDestination);
 
             timer = 0;
             
@@ -97,6 +102,41 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
 
-        navAgent.SetDestination(targetDestination);
+        if (!waitForSpawn && new Vector3(transform.position.x, 0, transform.position.z) == new Vector3(targetDestination.x, 0, targetDestination.z))
+        {
+            waitForSpawn = true;
+            StartCoroutine(spawnNewPos());
+        }
+        else if (!waitForSpawn)
+        {
+            navAgent.SetDestination(targetDestination);
+        }
+    }
+
+    IEnumerator spawnNewPos()
+    {
+        while (waitForSpawn)
+        {
+            if (player.route.Count >= 30)
+            {
+                Debug.Log("Enemy Start");
+                int wait = Random.Range(3, 6);
+                Debug.Log("Wait time: " + wait + " and go time = " + Time.deltaTime + wait);
+                yield return new WaitForSeconds(wait);
+                int nr = Random.Range(10, player.route.Count - 10);
+                Debug.Log("Route nr: " + player.route[nr]);
+                Debug.Log("Pre Pos: " + transform.position);
+                transform.position = player.route[nr].transform.position + Vector3.up;
+                Debug.Log("Post Pos: " + transform.position);
+                playerLastPos = player.transform.position;
+                player.route.Clear();
+                waitForSpawn = false;
+            }
+            else
+            {
+                yield return new WaitForSeconds(1);
+            }
+        }
+
     }
 }

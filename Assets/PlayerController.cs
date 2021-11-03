@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
     private Vector3 moveDir;
     bool onGround;
+    public List<GameObject> route;
 
     private void Start()
     {
@@ -41,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.transform.tag == "Floor")
         {
+            route.Add(collision.gameObject);
             onGround = true;
         }
     }

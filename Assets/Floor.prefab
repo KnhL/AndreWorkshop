@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 3523757910396907128}
   m_Layer: 0
   m_Name: Floor
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,6 +215,7 @@ GameObject:
   - component: {fileID: 3192408072708968398}
   - component: {fileID: 310126997819337087}
   - component: {fileID: 6209949335519121085}
+  - component: {fileID: 7884504765198533882}
   m_Layer: 0
   m_Name: West Wall
   m_TagString: Untagged
@@ -230,8 +231,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4987497125951854293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 12, z: 0}
-  m_LocalScale: {x: 0.1, y: 25, z: 1.1}
+  m_LocalPosition: {x: -0.5, y: 12, z: 0.05}
+  m_LocalScale: {x: 0.1, y: 25, z: 1}
   m_Children:
   - {fileID: 6544840105154102018}
   m_Father: {fileID: 3284841132043756107}
@@ -265,7 +266,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
+  - {fileID: 2100000, guid: 25c5a26d23f7d5549bef9db0ff83a08d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -315,6 +316,22 @@ MonoBehaviour:
   spawnChance: 0.001
   mat: {fileID: 0}
   decalMaterials: []
+--- !u!208 &7884504765198533882
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987497125951854293}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5146474628760205219
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,6 +345,7 @@ GameObject:
   - component: {fileID: 6656712974641679453}
   - component: {fileID: 495073704105975882}
   - component: {fileID: 6481047574095454960}
+  - component: {fileID: 7040299437262604090}
   m_Layer: 0
   m_Name: East Wall
   m_TagString: Untagged
@@ -343,8 +361,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5146474628760205219}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 12, z: 0}
-  m_LocalScale: {x: 0.1, y: 25, z: 1.1}
+  m_LocalPosition: {x: 0.5, y: 12, z: -0.05}
+  m_LocalScale: {x: 0.1, y: 25, z: 1}
   m_Children:
   - {fileID: 1541001836263056309}
   m_Father: {fileID: 3284841132043756107}
@@ -378,7 +396,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
+  - {fileID: 2100000, guid: 25c5a26d23f7d5549bef9db0ff83a08d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -428,6 +446,22 @@ MonoBehaviour:
   spawnChance: 0.001
   mat: {fileID: 0}
   decalMaterials: []
+--- !u!208 &7040299437262604090
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146474628760205219}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5680791207138887782
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +488,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5680791207138887782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalPosition: {x: 0.002, y: -0.1, z: -0.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6900915595838175414}
@@ -518,6 +552,7 @@ GameObject:
   - component: {fileID: 8516801126202634616}
   - component: {fileID: 4460994946868420940}
   - component: {fileID: 836519393713504277}
+  - component: {fileID: 7370862117156767845}
   m_Layer: 0
   m_Name: North Wall
   m_TagString: Untagged
@@ -533,8 +568,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6602966754786723488}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 12, z: 0.5}
-  m_LocalScale: {x: 1.1, y: 25, z: 0.1}
+  m_LocalPosition: {x: 0.056, y: 12, z: 0.5}
+  m_LocalScale: {x: 1, y: 25, z: 0.1}
   m_Children:
   - {fileID: 8373879656642035033}
   m_Father: {fileID: 3284841132043756107}
@@ -568,7 +603,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
+  - {fileID: 2100000, guid: 25c5a26d23f7d5549bef9db0ff83a08d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -618,6 +653,22 @@ MonoBehaviour:
   spawnChance: 0.001
   mat: {fileID: 0}
   decalMaterials: []
+--- !u!208 &7370862117156767845
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602966754786723488}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8201977724893732251
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,6 +682,7 @@ GameObject:
   - component: {fileID: 2551430370305167065}
   - component: {fileID: 6910390610774652636}
   - component: {fileID: 8785847626627583995}
+  - component: {fileID: 4059283408726799283}
   m_Layer: 0
   m_Name: South Wall
   m_TagString: Untagged
@@ -646,8 +698,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8201977724893732251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 12, z: -0.5}
-  m_LocalScale: {x: 1.1, y: 25, z: 0.1}
+  m_LocalPosition: {x: -0.05, y: 12, z: -0.5}
+  m_LocalScale: {x: 1, y: 25, z: 0.1}
   m_Children:
   - {fileID: 2470228524449242276}
   m_Father: {fileID: 3284841132043756107}
@@ -681,7 +733,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
+  - {fileID: 2100000, guid: 25c5a26d23f7d5549bef9db0ff83a08d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -731,6 +783,22 @@ MonoBehaviour:
   spawnChance: 0.001
   mat: {fileID: 0}
   decalMaterials: []
+--- !u!208 &4059283408726799283
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201977724893732251}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &8390419840398458401
 GameObject:
   m_ObjectHideFlags: 0

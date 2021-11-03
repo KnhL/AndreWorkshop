@@ -10,7 +10,7 @@ public class MazeGenerator : MonoBehaviour
     public int[,] maze;
     public Vector2 startingPoint, endingPoint, currentPoint;
     public List<Vector2> startingPoints, endingPoints;
-    public GameObject floorPrefab, floorNoWallPrefab, mainFloor, playerPrefab;
+    public GameObject floorPrefab, floorNoWallPrefab, mainFloor, playerPrefab, enemyPrefab;
     public List<GameObject> floor;
     public float mazeDifferenceMultiplier, MDMstart, MDMmin, MDMdecrease;
     public float waitTimeCalc, waitTimeSpawn;
@@ -406,7 +406,7 @@ public class MazeGenerator : MonoBehaviour
             }
         }
         Instantiate(playerPrefab, new Vector3((width - 1) / 2, 10, (height - 1) / 2), Quaternion.identity);
-        Instantiate(mainFloor, new Vector3((width - 1) / 2, 0, (height - 1) / 2), Quaternion.identity);
+        Instantiate(enemyPrefab, floor[Random.Range(0, floor.Count)].transform.position + Vector3.up, Quaternion.identity);
         timer.Stop();
         UnityEngine.Debug.Log($"Done - {timer.Elapsed}");
     }

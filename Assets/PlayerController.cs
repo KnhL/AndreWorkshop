@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed, jumpMultiplier;
     private Rigidbody rb;
     private Vector3 moveDir;
+    bool onGround;
 
     private void Start()
     {
@@ -17,8 +18,9 @@ public class PlayerController : MonoBehaviour
     {
         moveDir = transform.right * Input.GetAxis("Horizontal") + transform.forward * Input.GetAxis("Vertical");
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (onGround && Input.GetKeyDown(KeyCode.Space))
         {
+            onGround = false;
             rb.AddForce(new Vector3(0, jumpMultiplier, 0));
         }
 
@@ -33,5 +35,13 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.MovePosition(transform.position + (moveDir * speed * Time.deltaTime));
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.transform.tag == "Floor")
+        {
+            onGround = true;
+        }
     }
 }

@@ -18,7 +18,6 @@ public class MazeGenerator : MonoBehaviour
     public Material mat;
     GameObject mainPaths;
     GameObject SidePaths;
-    GameObject excludedPoints;
     Stopwatch timer = new Stopwatch();
 
     private void Start()
@@ -26,7 +25,6 @@ public class MazeGenerator : MonoBehaviour
         timer.Start();
         mainPaths = new GameObject("Main Paths");
         SidePaths = new GameObject("Side Paths");
-        excludedPoints = new GameObject("Excluded Points");
         width++;
         height++;
         startingPoint = startingPoints[0];

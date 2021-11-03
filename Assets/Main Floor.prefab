@@ -67,5 +67,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 3883657447232913142, guid: 9a57d9579de2c664ab0a3d6bb64e468d, type: 3}
+      propertyPath: m_TagString
+      value: Floor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a57d9579de2c664ab0a3d6bb64e468d, type: 3}

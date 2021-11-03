@@ -71,6 +71,7 @@ public class DimSeeBehavior : MonoBehaviour
 
     public void SteamStart(bool playerSeen)
     {
+        //Debug.Log(playerSeen);
         localPlayerSeen = playerSeen;
 
         if (playerSeen == true)
@@ -103,6 +104,8 @@ public class DimSeeBehavior : MonoBehaviour
 
     private void LateUpdate()
     {
+        //Debug.Log(localPlayerSeen);
+
         if (localPlayerSeen == false)
         {
             for (int cnt = 0; cnt < steamObjects.Length; cnt++)

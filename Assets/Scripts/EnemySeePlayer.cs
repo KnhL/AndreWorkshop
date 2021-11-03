@@ -55,7 +55,7 @@ public class EnemySeePlayer : MonoBehaviour
                         enemyScript.seenPlayer = true;
                     }
                 }
-                else
+                else if(!hit.collider.gameObject.CompareTag("Player") || hit.collider == null)
                 {
                     var dimSeeBehavior = player.GetComponentInChildren<DimSeeBehavior>();
                     dimSeeBehavior.ClockAnimStart(false);

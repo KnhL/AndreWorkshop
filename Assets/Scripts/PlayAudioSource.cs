@@ -28,11 +28,6 @@ public class PlayAudioSource : MonoBehaviour
 
     private void Start()
     {
-        //if (vfx != null)
-        //{
-        //    vfxStart = vfx.GetFloat(vfxTargetString);
-        //}
-
         if (isOnTarget == true)
         {
             if (this.GetComponent<VisualEffect>().isActiveAndEnabled == true)
@@ -54,10 +49,10 @@ public class PlayAudioSource : MonoBehaviour
         if(vfx != null)
         {
             float vfxProcent = (vfx.GetFloat(vfxTargetString) / maxInputValue) * 100;
-            Debug.Log(vfxProcent);
+            //Debug.Log(vfxProcent);
 
             float newAudioVolume = (audioMax / 100) * vfxProcent;
-            Debug.Log(newAudioVolume);
+            //Debug.Log(newAudioVolume);
 
             audioS.volume = Mathf.Lerp(audioS.volume, newAudioVolume, 0.2f);
 

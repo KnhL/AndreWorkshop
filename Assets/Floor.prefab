@@ -1,5 +1,159 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1891115030843872649
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6544840105154102018}
+  - component: {fileID: 2549384236772824228}
+  - component: {fileID: 6958129892732137790}
+  m_Layer: 0
+  m_Name: WestDecal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6544840105154102018
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891115030843872649}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8425093301967032919}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!114 &2549384236772824228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891115030843872649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 5, z: 0.1}
+  m_FadeFactor: 1
+  m_Version: 2
+--- !u!114 &6958129892732137790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1891115030843872649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.01
+  mat: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  decalMaterials:
+  - {fileID: 2100000, guid: 75a09e20d031e8b4d96a69cb7fd45a31, type: 2}
+  - {fileID: 2100000, guid: 7431e1428014e544d99708b8ba6806cf, type: 2}
+  - {fileID: 2100000, guid: 5939218ed5747b540989bc1ed3107482, type: 2}
+  - {fileID: 2100000, guid: d8c79c682a90ee64db00629b68a953da, type: 2}
+  - {fileID: 2100000, guid: 4802407203c5e934791af17a7d23f313, type: 2}
+--- !u!1 &2981836130248249179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2470228524449242276}
+  - component: {fileID: 5358992220175360214}
+  - component: {fileID: 2318298111564471700}
+  m_Layer: 0
+  m_Name: SouthDecal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2470228524449242276
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981836130248249179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 369727144409914423}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5358992220175360214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981836130248249179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 5, z: 0.1}
+  m_FadeFactor: 1
+  m_Version: 2
+--- !u!114 &2318298111564471700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2981836130248249179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.01
+  mat: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  decalMaterials:
+  - {fileID: 2100000, guid: 75a09e20d031e8b4d96a69cb7fd45a31, type: 2}
+  - {fileID: 2100000, guid: 7431e1428014e544d99708b8ba6806cf, type: 2}
+  - {fileID: 2100000, guid: 5939218ed5747b540989bc1ed3107482, type: 2}
+  - {fileID: 2100000, guid: d8c79c682a90ee64db00629b68a953da, type: 2}
+  - {fileID: 2100000, guid: 4802407203c5e934791af17a7d23f313, type: 2}
 --- !u!1 &3883657447232913142
 GameObject:
   m_ObjectHideFlags: 0
@@ -28,10 +182,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.1, z: 1}
   m_Children:
-  - {fileID: 6473280241049126577}
-  - {fileID: 8425093301967032919}
   - {fileID: 6900915595838175414}
   - {fileID: 369727144409914423}
+  - {fileID: 6473280241049126577}
+  - {fileID: 8425093301967032919}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -60,6 +214,7 @@ GameObject:
   - component: {fileID: 3115936921541468499}
   - component: {fileID: 3192408072708968398}
   - component: {fileID: 310126997819337087}
+  - component: {fileID: 6209949335519121085}
   m_Layer: 0
   m_Name: West Wall
   m_TagString: Untagged
@@ -77,9 +232,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.5, y: 12, z: 0}
   m_LocalScale: {x: 0.1, y: 25, z: 1.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 6544840105154102018}
   m_Father: {fileID: 3284841132043756107}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3115936921541468499
 MeshFilter:
@@ -109,7 +265,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d2a7b20d62d48f4dbdb08c317e59519, type: 2}
+  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,6 +300,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6209949335519121085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4987497125951854293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.001
+  mat: {fileID: 0}
+  decalMaterials: []
 --- !u!1 &5146474628760205219
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +327,7 @@ GameObject:
   - component: {fileID: 802070658429225771}
   - component: {fileID: 6656712974641679453}
   - component: {fileID: 495073704105975882}
+  - component: {fileID: 6481047574095454960}
   m_Layer: 0
   m_Name: East Wall
   m_TagString: Untagged
@@ -173,9 +345,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.5, y: 12, z: 0}
   m_LocalScale: {x: 0.1, y: 25, z: 1.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1541001836263056309}
   m_Father: {fileID: 3284841132043756107}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &802070658429225771
 MeshFilter:
@@ -205,7 +378,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d2a7b20d62d48f4dbdb08c317e59519, type: 2}
+  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -240,6 +413,98 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6481047574095454960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5146474628760205219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.001
+  mat: {fileID: 0}
+  decalMaterials: []
+--- !u!1 &5680791207138887782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8373879656642035033}
+  - component: {fileID: 7967812342275428452}
+  - component: {fileID: 2303958357554989643}
+  m_Layer: 0
+  m_Name: NorthDecal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8373879656642035033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680791207138887782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6900915595838175414}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7967812342275428452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680791207138887782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 5, z: 0.1}
+  m_FadeFactor: 1
+  m_Version: 2
+--- !u!114 &2303958357554989643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5680791207138887782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.01
+  mat: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  decalMaterials:
+  - {fileID: 2100000, guid: 75a09e20d031e8b4d96a69cb7fd45a31, type: 2}
+  - {fileID: 2100000, guid: 7431e1428014e544d99708b8ba6806cf, type: 2}
+  - {fileID: 2100000, guid: 5939218ed5747b540989bc1ed3107482, type: 2}
+  - {fileID: 2100000, guid: d8c79c682a90ee64db00629b68a953da, type: 2}
+  - {fileID: 2100000, guid: 4802407203c5e934791af17a7d23f313, type: 2}
 --- !u!1 &6602966754786723488
 GameObject:
   m_ObjectHideFlags: 0
@@ -252,6 +517,7 @@ GameObject:
   - component: {fileID: 3608321075661531074}
   - component: {fileID: 8516801126202634616}
   - component: {fileID: 4460994946868420940}
+  - component: {fileID: 836519393713504277}
   m_Layer: 0
   m_Name: North Wall
   m_TagString: Untagged
@@ -266,13 +532,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6602966754786723488}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 12, z: 0.5}
   m_LocalScale: {x: 1.1, y: 25, z: 0.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 8373879656642035033}
   m_Father: {fileID: 3284841132043756107}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &3608321075661531074
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -301,7 +568,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d2a7b20d62d48f4dbdb08c317e59519, type: 2}
+  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -336,6 +603,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &836519393713504277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602966754786723488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.001
+  mat: {fileID: 0}
+  decalMaterials: []
 --- !u!1 &8201977724893732251
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,6 +630,7 @@ GameObject:
   - component: {fileID: 7628449276662080342}
   - component: {fileID: 2551430370305167065}
   - component: {fileID: 6910390610774652636}
+  - component: {fileID: 8785847626627583995}
   m_Layer: 0
   m_Name: South Wall
   m_TagString: Untagged
@@ -365,9 +648,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 12, z: -0.5}
   m_LocalScale: {x: 1.1, y: 25, z: 0.1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2470228524449242276}
   m_Father: {fileID: 3284841132043756107}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7628449276662080342
 MeshFilter:
@@ -397,7 +681,7 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d2a7b20d62d48f4dbdb08c317e59519, type: 2}
+  - {fileID: 2100000, guid: 463c37023795f5749bb7b1898e6efe45, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -432,3 +716,95 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8785847626627583995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8201977724893732251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.001
+  mat: {fileID: 0}
+  decalMaterials: []
+--- !u!1 &8390419840398458401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1541001836263056309}
+  - component: {fileID: 9042749921115914977}
+  - component: {fileID: 3062959580565933899}
+  m_Layer: 0
+  m_Name: EastDecal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1541001836263056309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390419840398458401}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6473280241049126577}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!114 &9042749921115914977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390419840398458401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f19d9143a39eb3b46bc4563e9889cfbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_AffectsTransparency: 0
+  m_DecalLayerMask: 1
+  m_Offset: {x: 0, y: 0, z: 0}
+  m_Size: {x: 5, y: 5, z: 0.1}
+  m_FadeFactor: 1
+  m_Version: 2
+--- !u!114 &3062959580565933899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8390419840398458401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05aa0616fc2bd6540bddb1e298f689e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnChance: 0.01
+  mat: {fileID: 2100000, guid: 2bebe39360c6dd342a4fe12a1f00098d, type: 2}
+  decalMaterials:
+  - {fileID: 2100000, guid: 75a09e20d031e8b4d96a69cb7fd45a31, type: 2}
+  - {fileID: 2100000, guid: 7431e1428014e544d99708b8ba6806cf, type: 2}
+  - {fileID: 2100000, guid: 5939218ed5747b540989bc1ed3107482, type: 2}
+  - {fileID: 2100000, guid: d8c79c682a90ee64db00629b68a953da, type: 2}
+  - {fileID: 2100000, guid: 4802407203c5e934791af17a7d23f313, type: 2}

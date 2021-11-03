@@ -38,8 +38,7 @@ public class EnemySeePlayer : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Player"))
                 {
                     var dimSeeBehavior = player.GetComponentInChildren<DimSeeBehavior>();
-                    dimSeeBehavior.ClockAnimStart(true);
-                    dimSeeBehavior.SteamStart(true);
+                    
 
                     if (timer <= timerMax)
                     {
@@ -53,6 +52,9 @@ public class EnemySeePlayer : MonoBehaviour
                         enemyScript.player = other.gameObject.GetComponent<PlayerController>();
 
                         enemyScript.seenPlayer = true;
+
+                        dimSeeBehavior.ClockAnimStart(true);
+                        dimSeeBehavior.SteamStart(true);
                     }
                 }
                 else if(!hit.collider.gameObject.CompareTag("Player") || hit.collider == null)

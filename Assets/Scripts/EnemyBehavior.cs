@@ -9,7 +9,11 @@ public class EnemyBehavior : MonoBehaviour
 
     public PlayerController player;
 
-    
+    [SerializeField]
+    private AudioSource isVisibleAudio;
+
+    [SerializeField]
+    private SkinnedMeshRenderer mRender;
 
     [SerializeField]
     private NavMeshAgent navAgent;
@@ -35,22 +39,46 @@ public class EnemyBehavior : MonoBehaviour
     private float timer;
 
     private float glowTimer;
+    [SerializeField]
+    private float isVisibleTimer = 10;
 
     bool waitForSpawn = false;
 
     private void Start()
     {
-        player = GameObject.Find("Player(Clone)").GetComponent<PlayerController>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
 
         targetDestination = this.transform.position;
 
         eyeStartQuat = eye.transform.localRotation;
 
         Debug.Log(eyeStartQuat);
+
+        isVisibleAudio = GameObject.Find("EnemyIsVisibleAudio").GetComponent<AudioSource>(); 
     }
+
+    private void OnWillRenderObject()
+    {
+        if (isVisibleTimer >= 10)
+        {
+            isVisibleAudio.Play();
+
+            isVisibleTimer = 0;
+        }
+
+        print(gameObject.name + " is being rendered by " + Camera.current.name + " at " + Time.time);
+    }
+
 
     private void Update()
     {
+        isVisibleTimer += Time.deltaTime;
+
+        if (isVisibleTimer >= 10)
+        {
+            isVisibleTimer = 10;
+        }
+
         if (seenPlayer == true)
         {
             eyeGoToTrans.transform.LookAt(player.transform);
@@ -76,7 +104,7 @@ public class EnemyBehavior : MonoBehaviour
 
             targetDestination = playerLastPos;
             navAgent.SetDestination(targetDestination);
-            Debug.Log(targetDestination);
+            //Debug.Log(targetDestination);
 
             timer = 0;
             

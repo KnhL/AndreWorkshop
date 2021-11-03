@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4284321242335088168}
   m_Layer: 3
   m_Name: Cylinder.004
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 2074874814646813110}
   m_Layer: 3
   m_Name: monster-projektOnlyBody
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 1446668654915983143}
   m_Layer: 3
   m_Name: monster-projektHead
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 8697098911374987394}
   m_Layer: 3
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 3693006262568473134}
   m_Layer: 3
   m_Name: Cone.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 3207471546626431150}
   m_Layer: 3
   m_Name: Cone.002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -412,7 +412,7 @@ GameObject:
   - component: {fileID: 8594235831046388390}
   m_Layer: 3
   m_Name: Cylinder.002
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -494,9 +494,10 @@ GameObject:
   - component: {fileID: 7821165464716548804}
   - component: {fileID: 4245588982479958203}
   - component: {fileID: 4245588982479958202}
-  m_Layer: 0
+  - component: {fileID: 1911395738}
+  m_Layer: 7
   m_Name: Cape
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -588,7 +589,7 @@ Cloth:
   m_BendingStiffness: 0.1
   m_UseTethers: 1
   m_UseGravity: 1
-  m_Damping: 0
+  m_Damping: 0.3
   m_ExternalAcceleration: {x: 0, y: 0, z: 0}
   m_RandomAcceleration: {x: 0, y: 0, z: 2}
   m_WorldVelocityScale: 0.4
@@ -2498,6 +2499,23 @@ Cloth:
   - {x: 0.6666667, y: 0.16666667, z: 0.16666667}
   - {x: 0.5, y: 0.5, z: 0}
   m_VirtualParticleIndices: 
+--- !u!114 &1911395738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4245588982479958197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10fd7923e1d35ed4e93a8bda4f682e42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isVisibleAudio: {fileID: 0}
+  isVisibleTimer: 10
+  raycastLayer:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!1 &6361180047837236785
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,7 +2529,7 @@ GameObject:
   - component: {fileID: 8442949676415718754}
   m_Layer: 3
   m_Name: Iris
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2593,7 +2611,7 @@ GameObject:
   - component: {fileID: 7399680906733555635}
   m_Layer: 3
   m_Name: EyeOutline
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2675,7 +2693,7 @@ GameObject:
   - component: {fileID: 1569633319301376311}
   m_Layer: 3
   m_Name: Eye
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2755,7 +2773,7 @@ GameObject:
   - component: {fileID: 7583236424435389790}
   - component: {fileID: 7095071521868484581}
   - component: {fileID: 7095071521868484586}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -2801,6 +2819,7 @@ MonoBehaviour:
   eyeGoToTrans: {fileID: 8639649678812597960}
   eyeMat: {fileID: 2100000, guid: 3a1b14cb69776ff49a01ff5256676c0a, type: 2}
   irisMat: {fileID: 2100000, guid: a3f5d1dad4a47bd42bc91faaf3e13a82, type: 2}
+  isVisibleTimer: 10
 --- !u!195 &7095071521868484586
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -2837,7 +2856,7 @@ GameObject:
   - component: {fileID: 7117540564190119230}
   m_Layer: 3
   m_Name: Cube.006
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2934,7 +2953,7 @@ GameObject:
   - component: {fileID: 7176386350378624594}
   m_Layer: 3
   m_Name: Cube.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3029,7 +3048,7 @@ GameObject:
   - component: {fileID: 7278972584240944844}
   m_Layer: 3
   m_Name: CapeCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3075,7 +3094,7 @@ GameObject:
   - component: {fileID: 8746049413075570407}
   m_Layer: 3
   m_Name: Cylinder.001
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3156,9 +3175,9 @@ GameObject:
   - component: {fileID: 8639649678634238603}
   - component: {fileID: 8639649678634238601}
   - component: {fileID: 8639649678634238600}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: EnemySeeCollider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3220,7 +3239,7 @@ GameObject:
   - component: {fileID: 8639649678812597960}
   m_Layer: 3
   m_Name: EyeGoTo
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

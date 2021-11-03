@@ -27,6 +27,7 @@ public class DimSeeBehavior : MonoBehaviour
 
     private float delay;
 
+    [SerializeField]
     private bool localPlayerSeen;
 
     private void Update()

@@ -50,7 +50,7 @@ public class EnemyBehavior : MonoBehaviour
 
     private void Update()
     {
-        if(seenPlayer == true)
+        if (seenPlayer == true)
         {
             eyeGoToTrans.transform.LookAt(player.transform);
             eye.transform.rotation = Quaternion.Lerp(eye.transform.rotation, eyeGoToTrans.rotation, 0.05f);
@@ -71,9 +71,10 @@ public class EnemyBehavior : MonoBehaviour
                 irisMat.SetFloat("GlowMultiplier", newGlowMultiplier);
             }
 
-            playerLastPos = player.transform.position;
+            playerLastPos = new Vector3(player.transform.position.x, 1, player.transform.position.z); ;
 
             targetDestination = playerLastPos;
+            navAgent.SetDestination(targetDestination);
             Debug.Log(targetDestination);
 
             timer = 0;
@@ -126,9 +127,13 @@ public class EnemyBehavior : MonoBehaviour
                 int nr = Random.Range(10, player.route.Count - 10);
                 Debug.Log("Route nr: " + player.route[nr]);
                 Debug.Log("Pre Pos: " + transform.position);
+                GetComponent<NavMeshAgent>().enabled = false;
                 transform.position = player.route[nr].transform.position + Vector3.up;
+                GetComponent<NavMeshAgent>().enabled = true;
                 Debug.Log("Post Pos: " + transform.position);
-                playerLastPos = player.transform.position;
+                playerLastPos = new Vector3(player.transform.position.x, 1, player.transform.position.z);
+                targetDestination = playerLastPos;
+                navAgent.SetDestination(targetDestination);
                 player.route.Clear();
                 waitForSpawn = false;
             }

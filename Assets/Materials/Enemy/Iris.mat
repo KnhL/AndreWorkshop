@@ -52,7 +52,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - GlowMultiplier: 199.94006
+    - GlowMultiplier: 20.008982
     - Scale: 5.21
     - _AddPrecomputedVelocity: 0
     - _AlphaCutoffEnable: 0

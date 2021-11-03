@@ -27,6 +27,8 @@ public class DimSeeBehavior : MonoBehaviour
 
     private float delay;
 
+    private bool localPlayerSeen;
+
     private void Update()
     {
         delay += Time.deltaTime;
@@ -59,7 +61,6 @@ public class DimSeeBehavior : MonoBehaviour
 
                 freqSlid.selected = false;
             }
-
         }
     }
 
@@ -70,42 +71,44 @@ public class DimSeeBehavior : MonoBehaviour
 
     public void SteamStart(bool playerSeen)
     {
+        localPlayerSeen = playerSeen;
+
         if (playerSeen == true)
         {
-            StartCoroutine(SteamStartCou());
+            StartCoroutine(SteamStartCou(playerSeen));
         }
-        else
+        //else
+        //{
+        //    for (int cnt = 0; cnt < steamObjects.Length; cnt++)
+        //    {
+        //        steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 0);
+        //    }
+        //}
+    }
+
+    private IEnumerator SteamStartCou(bool playerSeen)
+    {
+        WaitForSeconds wfs = new WaitForSeconds(1f);
+
+        if (playerSeen == true)
         {
             for (int cnt = 0; cnt < steamObjects.Length; cnt++)
             {
-                steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 0);
+                steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 1);
 
-                //if (steamObjects[cnt].GetComponent<AudioSource>().isPlaying == true)
-                //{
-                //    steamObjects[cnt].GetComponent<AudioSource>().Stop();
-
-                //    playSteamSound = false;
-                //}
+                yield return wfs;
             }
         }
     }
 
-    private IEnumerator SteamStartCou()
+    private void LateUpdate()
     {
-        //playSteamSound = true;
-
-        WaitForSeconds wfs = new WaitForSeconds(1f);
-
-        for (int cnt = 0; cnt < steamObjects.Length; cnt++)
+        if (localPlayerSeen == false)
         {
-            steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 1);
-
-            //if (steamObjects[cnt].GetComponent<AudioSource>().isPlaying != true && playSteamSound == true)
-            //{
-            //    steamObjects[cnt].GetComponent<AudioSource>().Play();
-            //}
-            
-            yield return wfs;
+            for (int cnt = 0; cnt < steamObjects.Length; cnt++)
+            {
+                steamObjects[cnt].GetComponent<VisualEffect>().SetFloat("SpawnRateMultiplier", 0);
+            }
         }
     }
 }

@@ -97,7 +97,7 @@ public class CameraBehavior : MonoBehaviour
     {
         lockCursor = a;
 
-        Debug.Log("LockCur called");
+        //Debug.Log("LockCur called");
     }
 
     private void Update()

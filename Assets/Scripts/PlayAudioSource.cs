@@ -12,6 +12,9 @@ public class PlayAudioSource : MonoBehaviour
     private VisualEffect vfx;
 
     [SerializeField]
+    private float maxInputValue;
+
+    [SerializeField]
     private string vfxTargetString;
 
     [SerializeField]
@@ -25,10 +28,10 @@ public class PlayAudioSource : MonoBehaviour
 
     private void Start()
     {
-        if (vfx != null)
-        {
-            vfxStart = vfx.GetFloat(vfxTargetString);
-        }
+        //if (vfx != null)
+        //{
+        //    vfxStart = vfx.GetFloat(vfxTargetString);
+        //}
 
         if (isOnTarget == true)
         {
@@ -50,9 +53,11 @@ public class PlayAudioSource : MonoBehaviour
     {
         if(vfx != null)
         {
-            float vfxProcent = (vfx.GetFloat(vfxTargetString) / vfxStart) * 100;
+            float vfxProcent = (vfx.GetFloat(vfxTargetString) / maxInputValue) * 100;
+            Debug.Log(vfxProcent);
 
             float newAudioVolume = (audioMax / 100) * vfxProcent;
+            Debug.Log(newAudioVolume);
 
             audioS.volume = Mathf.Lerp(audioS.volume, newAudioVolume, 0.2f);
 

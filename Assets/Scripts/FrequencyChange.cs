@@ -21,7 +21,7 @@ public class FrequencyChange : MonoBehaviour
     {
         if (other.gameObject.CompareTag("RadioSlider"))
         {
-            Debug.Log("FreqChange");
+            //Debug.Log("FreqChange");
 
 
             radioFreq = other.gameObject.GetComponent<FrequencySlider>();

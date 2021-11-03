@@ -356,7 +356,7 @@ Transform:
   m_GameObject: {fileID: 1976211666}
   m_LocalRotation: {x: 0.63377386, y: -0.17729041, z: -0.7345194, w: 0.16546902}
   m_LocalPosition: {x: -1.4, y: 129.6, z: 32.3}
-  m_LocalScale: {x: 6.0431237, y: 7.488637, z: 6.043122}
+  m_LocalScale: {x: 9.885946, y: 12.250662, z: 9.885943}
   m_Children: []
   m_Father: {fileID: 908133468346044828}
   m_RootOrder: 0
@@ -377,7 +377,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: SpawnRateMultiplier
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -451,7 +454,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe9fdd4aa8589524182589f182f076a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -549,9 +552,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnTarget: 1
   vfx: {fileID: 1976211669}
+  maxInputValue: 1
   vfxTargetString: SpawnRateMultiplier
   audioS: {fileID: 1976211670}
-  audioMax: 0.1
+  audioMax: 0.02
 --- !u!1 &908133466428210403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3130,7 +3134,7 @@ MonoBehaviour:
   targetDirection: {x: 0, y: 0}
   targetCharacterDirection: {x: 0, y: 0}
   characterBody: {fileID: 908133468302018842}
-  smoothing: {x: 3, y: 3}
+  smoothing: {x: 2, y: 2}
 --- !u!114 &908133467463841045
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6921,8 +6925,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4893080179144360055}
   m_LocalRotation: {x: 0.6495815, y: 0.10557028, z: -0.73602265, w: -0.15864897}
-  m_LocalPosition: {x: 2, y: 112.1, z: 63.9}
-  m_LocalScale: {x: 6.134499, y: 7.6017327, z: 6.1345}
+  m_LocalPosition: {x: -0.18, y: 112.65, z: 64.99}
+  m_LocalScale: {x: 9.5698185, y: 11.858703, z: 9.569819}
   m_Children: []
   m_Father: {fileID: 908133467368927271}
   m_RootOrder: 0
@@ -6943,7 +6947,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: SpawnRateMultiplier
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -7017,7 +7024,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe9fdd4aa8589524182589f182f076a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7115,9 +7122,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnTarget: 1
   vfx: {fileID: 5767440379911423545}
+  maxInputValue: 1
   vfxTargetString: SpawnRateMultiplier
   audioS: {fileID: 143823995}
-  audioMax: 0.1
+  audioMax: 0.02
 --- !u!1 &5122685131365709888
 GameObject:
   m_ObjectHideFlags: 0
@@ -7230,7 +7238,7 @@ Transform:
   m_GameObject: {fileID: 5590648558281855547}
   m_LocalRotation: {x: 0.658093, y: -0.0038458249, z: -0.7521529, w: -0.03412991}
   m_LocalPosition: {x: 15.03, y: 99.58, z: 10.3}
-  m_LocalScale: {x: 5.7403297, y: 7.1132874, z: 5.740332}
+  m_LocalScale: {x: 9.275799, y: 11.494362, z: 9.275803}
   m_Children: []
   m_Father: {fileID: 908133468087362912}
   m_RootOrder: 0
@@ -7251,7 +7259,10 @@ VisualEffect:
   m_ResourceVersion: 1
   m_PropertySheet:
     m_Float:
-      m_Array: []
+      m_Array:
+      - m_Value: 0
+        m_Name: SpawnRateMultiplier
+        m_Overridden: 1
     m_Vector2f:
       m_Array: []
     m_Vector3f:
@@ -7325,7 +7336,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: fe9fdd4aa8589524182589f182f076a8, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -7423,9 +7434,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isOnTarget: 1
   vfx: {fileID: 2197646986404832500}
+  maxInputValue: 1
   vfxTargetString: SpawnRateMultiplier
   audioS: {fileID: 384230070}
-  audioMax: 0.1
+  audioMax: 0.02
 --- !u!1 &7376681441684983171
 GameObject:
   m_ObjectHideFlags: 0
@@ -7470,8 +7482,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 543.4459
-  m_Range: 10
+  m_Intensity: 10807.55
+  m_Range: 0.3
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -7515,7 +7527,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 1
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 10}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0.3}
   m_UseBoundingSphereOverride: 1
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -7532,7 +7544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a68c43fe1f2a47cfa234b5eeaa98012, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Intensity: 2.9677274
+  m_Intensity: 59.01942
   m_EnableSpotReflector: 1
   m_LuxAtDistance: 1
   m_InnerSpotPercent: 0
